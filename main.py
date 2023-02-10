@@ -175,19 +175,18 @@ def p_statement_input(p):
     p[0] = ('input', p[2])
 
 
-# TODO: add production rules for varlist
-# HINT: you will new TWO separate production rules, one for just a single var, and another for multiple vars separated by a comma
-# ANOTHER HINT: look at the linelist production rules above as an example
 def p_varlist_single(p):
-    # replace the pass line below with your code including the ''' docstring ''' for the grammar rule for a varlist
-    # HINT: after the docstring you need to designate a var using a tuple ... p[0] = ('var', p[1])
-    pass
+    '''
+    varlist : VAR
+    '''
+    p[0] = ('var', p[1])
 
 
 def p_varlist_multi(p):
-    # replace the pass line below with your code including the ''' docstring ''' for the grammar rule for a varlist
-    # HINT: after the docstring you need to concatenate (i.e, + ) the current var with the varlist ... p[0] = ('var', p[1]) + p[3] 
-    pass
+    '''
+    varlist : VAR COMMA varlist
+    '''
+    p[0] = ('var', p[1]) + p[3]
 
 
 def p_statement_let(p):
@@ -211,32 +210,30 @@ def p_statement_if_equals(p):
     p[0] = ('if', p[2], p[3], p[4], p[6])
 
 
-# TODO: add production rule for GOTO
 def p_statement_goto(p):
-    # replace the pass line below with your lines of code including the ''' docstring ''' for the grammar rule for a GOTO statement
-    # HINT: you will need to set p[0] to a tuple with the word 'goto' as the first member and the NUMBER as the second member
-    pass
+    '''
+    statement : GOTO expression
+    '''
+    p[0] = ('goto', p[2])
 
 
-# TODO: add production rule for GOSUB
 def p_statement_gosub(p):
-    # replace the pass line below with your lines of code including the ''' docstring ''' for the grammar rule for a GOSUB statement
-    # HINT: you will need to set p[0] to a tuple with the word 'gosub' as the first member and the NUMBER as the second member
-    pass
+    '''
+    statement : GOSUB expression
+    '''
+    p[0] = ('gosub', p[2])
 
-
-# TODO: add production rule for RETURN
 def p_statement_return(p):
-    # replace the pass line below with your code including the ''' docstring ''' for the grammar rule for a RETURN statement
-    # HINT: you can set p[0] to a tuple with just the word 'return' in it ... but make sure it's a tuple
-    pass
+    '''
+    statement : RETURN
+    '''
+    p[0] = ('return',)
 
-
-# TODO: add production rule for END
 def p_statement_end(p):
-    # replace the pass line below with your code including the ''' docstring ''' for the grammar rule for an END statement
-    # HINT: you can set p[0] to a tuple with just the word 'end' in it ... but make sure it's a tuple
-    pass
+    '''
+    statement : END
+    '''
+    p[0] = ('end',)
 
 
 # HINT: expressions were hard so I've done everything else for you already below
