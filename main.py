@@ -66,12 +66,8 @@ def readFile(filename):
 # --- Tokenizer
 
 # All tokens must be named in advance. 
-# TODO: FILL IN THE MISSING TOKEN NAMES BELOW
-#       HINT: LOOK AT THE MATCHING RULES TO SEE THE NAMES YOU SHOULD USE AFTER THE t_
 tokens = ('PLUS', 'MINUS', 'TIMES', 'DIVIDE', 'LPAREN', 'RPAREN', 'CR',
           'VAR', 'NUMBER', 'EQUALS', 'RELOP', 'COMMA', 'STRING')
-
-# name is not a real token, but we have to use it to prevent var from matching on the first char of all our keywords
 
 # Ignored characters
 t_ignore = ' \t'
@@ -93,8 +89,13 @@ t_STRING = r'\"([^"]|\\")*\"'
 # TODO fill in the missing keywords in the list below ...
 reserved = {
     'print': 'PRINT',
+    'input': 'INPUT',
     'if': 'IF',
     'then': 'THEN',
+    'let': 'LET',
+    'goto': 'GOTO',
+    'gosub': 'GOSUB',
+    'return': 'RETURN',
     'end': 'END'
 }
 
